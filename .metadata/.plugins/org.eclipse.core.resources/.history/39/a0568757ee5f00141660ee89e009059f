@@ -1,0 +1,17 @@
+import DataStructures.*;
+import Algorithm.*;
+
+// This will be used to test LinkedLis algorithms
+public class TestLinkedListAlgorithms {
+
+	public static void main(String[] args){
+		//Test LinkedList Methods
+		LinkedList List = new LinkedList();
+		//insert values in from of list
+		int[] testInsertFront = {1,2,3,4,5};
+		for(int i = 0; i < testInsertFront.length;i++){
+			List.insertFront(testInsertFront[i]);
+		}
+		List.printList(); // should print list 5,4,3,2,1
+	}
+}
