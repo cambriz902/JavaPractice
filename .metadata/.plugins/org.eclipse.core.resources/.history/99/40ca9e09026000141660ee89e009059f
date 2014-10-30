@@ -38,8 +38,8 @@ public class Test{
 	}
 	
 	public static void testIsPermutation(){
-		String stringOne = "abccd";
-		String stringTwo = "cadcb";
+		String stringOne = "abccccd";
+		String stringTwo = "cadbccc";
 		String stringThree ="abdcacc";
 		if(AlgorithmTwo.isPermutation(stringOne, stringTwo)){
 			System.out.println(stringOne + " is a permutation of " + stringTwo);
