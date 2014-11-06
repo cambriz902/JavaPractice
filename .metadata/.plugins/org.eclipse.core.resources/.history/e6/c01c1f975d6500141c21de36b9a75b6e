@@ -1,0 +1,59 @@
+package DataStructures;
+
+public class MinHeap{
+	int items;
+	int nextIndex;
+	int[] heap;
+	int heapSize;
+
+	public MinHeap(int size){
+		if(size < 1){
+			return;
+		}
+		this.items = 0;
+		this.nextIndex = 1;
+		this.heapSize = size+1;
+		this.heap = new int[heapSize];
+	}
+
+	public void insert(int data){
+		if(nextIndex > heapSize){
+			doubleTableSize();
+		}
+		int parent;
+		if(nextIndex %2 == 0){
+			parent = nextIndex / 2;
+		} else {
+			parent = (nextIndex - 1) / 2;
+		}
+		heap[nextIndex] = data;
+		while(parent >= 1){
+			if(heap[parent] <= heap[nextIndex]){
+				break;
+			}
+			int temp = heap[parent];
+			heap[parent] = heap[nextIndex];
+			heap[nextIndex] = temp;
+		}
+		nextIndex++;
+		items++;
+	}
+
+	public void doubleTableSize(){
+		int[] newHeap = new int[heapSize*2];
+		for(int i = 1; i <= heapSize;i++){
+			newHeap[i] = heap[i];
+		}
+		heap = newHeap;
+	}
+
+	public void printHeap(){
+		if(items == 0){
+			return;
+		}
+		for(int i = 1; i < items; i++){
+			System.out.print(heap[i] + ",");
+		}
+		System.out.println(heap[items]);
+	}
+}

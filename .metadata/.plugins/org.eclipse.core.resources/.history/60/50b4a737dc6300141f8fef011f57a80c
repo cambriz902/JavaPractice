@@ -1,0 +1,61 @@
+package DataStructures;
+
+public class StackArray {
+	int[] array;
+	int top;
+	int curr;
+	int buttom;
+	int items;
+
+	public StackArray(int size){
+		this.array = new int[size];
+		this.top = 0;
+		this.curr = 0;
+		this.buttom = 0;
+		this.items = 0;
+	}
+
+	public void push(int data){
+		if(isEmpty()){
+			array[top] = data;
+		} else {
+			top++;
+			array[top] = data;
+		}
+	}
+
+	public int peek(){
+		if(isEmpty()){
+			return -1;
+		}
+		return array[top];
+	}
+
+	public int pop(){
+		if(isEmpty()){
+			return -1;
+		}
+		int data = array[top];
+		top--;
+		items--;
+		return data;
+	}
+
+	public void printStack(){
+		if(isEmpty()){
+			return;
+		}
+		for(curr = 0; curr < items-1; curr++){
+			System.out.print(array[curr] + ",");
+		}
+		System.out.println(array[curr]);
+	}
+
+	public boolean isEmpty(){
+		if(items == 0){
+			return true;
+		}
+		return false;
+	}
+
+}
